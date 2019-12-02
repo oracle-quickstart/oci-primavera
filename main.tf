@@ -1,5 +1,5 @@
 locals {
-  // VCN is /16
+  # VCN is /16
   bastion_subnet_prefix = cidrsubnet(var.vcn_cidr, 6, 0)
   lb_subnet_prefix      = cidrsubnet(var.vcn_cidr, 6, 1)
   app_subnet_prefix     = cidrsubnet(var.vcn_cidr, 6, 2)

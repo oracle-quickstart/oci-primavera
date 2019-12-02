@@ -13,12 +13,10 @@ For more information on Oracle Primavera Suite deployment architecture on Oracle
 - [Architecture for Deploying Oracle Primavera Suite in Multiple Availability domains](https://docs.oracle.com/en/solutions/deploy-ebusiness-suite-oci/index.html#GUID-43B8797E-A2BD-4CA2-A4A9-0E19DB15DA3B)
 
 ## Prerequisites
-
 1. [Download and install Terraform](https://www.terraform.io/downloads.html) (v0.11.8 or later)
 2. Export OCI credentials using guidance at [Export Credentials](https://www.terraform.io/docs/providers/oci/index.html).
 
 ## Oracle Primavera Suite Terraform modules structure
-
 Terraform modules for Oracle Primavera Suite has the following structure:
 
 ```
@@ -73,7 +71,6 @@ Terraform modules for Oracle Primavera Suite has the following structure:
 └── variables.tf
 
 10 directories, 38 files
-
 ```
 
 - [**root**]:
@@ -98,7 +95,6 @@ Terraform modules for Oracle Primavera Suite has the following structure:
     - [subnets]: This sub module creates the subnets within a VCN.
 
 ## Inputs required in the terraform.tfvars file
-
 The following inputs are required for terraform modules:
 
 | Argument                   | Description                                                                                                                                                                                                                                                                                                                                                       |
@@ -134,7 +130,6 @@ The following inputs are required for terraform modules:
                                                                                                                                                                |
 
 ## Sample terraform.tfvars file to create Oracle Primavera Suite infrastructure in multiple availability domain architecture
-
 ```hcl
 # AD (Availability Domain to create Primavera infrastructure on)
 AD = ["1","2"]
@@ -228,7 +223,6 @@ AD = ["1"]
 ```
 
 ## Information about Oracle Cloud Infrastructure resources built by Terraform modules for Oracle Primavera Suite
-
 * It is recommended to use shared filesystem for Oracle Primavera Suite multi tier configuration. The Terraform modules create File     Storage service filesystem for single as well as multiple availability domain architecture. For a single availability domain architecture, a single filesystem is created. For multiple availability domain architecture, two such file systems are created, one in each availabilty domain.
 
 * The filesystems can be synchronized by an rsync script in cron. The rsync snchronization script is placed in cron of root user and is commented by default. The script can be enabled to synchornize fileystems after implemenation of Oracle Primavera Suite.
@@ -272,7 +266,6 @@ There are chances that minor version of operating system gets upgraded and a new
 
 
 ## Cloud-init template for application servers
-
 Following is the cloud-init template used to install Oracle Primavera Suite prerequisite RPMs and mount shared file systems on application servers:
 
 ```yaml
@@ -300,11 +293,6 @@ runcmd:
 These are the unix commands run to enable rsync across Oracle Primavera Suite application servers.
 
 ```
-#Copyright © 2018, Oracle and/or its affiliates. All rights reserved.
-
-#The Universal Permissive License (UPL), Version 1.0
-
-
 #/bin/bash
 sudo mkdir -p ${dst_mount_path}
 sudo mount ${dst_mount_target_private_ip}:${dst_export_path} ${dst_mount_path}
@@ -332,7 +320,7 @@ $ cd PrimaveraHome
   ```
   $ terraform init
   ```
-  ![terraform init](./_docs/terraform-init.png)
+  ![terraform init](./images/terraform-init.png)
 
 
 5) Set environment variables by running source **env-vars** on your UNIX system or by running **env-vars.ps1** on your Windows system.
