@@ -1,12 +1,8 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 # Create subnet
 resource "oci_core_subnet" "subnet" {
   count                       = "${length(var.availability_domain)}"
   availability_domain         = "${element(var.availability_domain, count.index)}"
-  compartment_id              = "${var.compartment_ocid}" 
+  compartment_id              = "${var.compartment_ocid}"
   vcn_id                      = "${var.vcn_id}"
   cidr_block                  = "${var.vcn_subnet_cidr[count.index]}"
   display_name                = "${var.dns_label}${var.AD[count.index]}"

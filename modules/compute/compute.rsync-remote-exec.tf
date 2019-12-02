@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 resource "random_integer" "rand" {
   min = 1000000000
   max = 9999999999
@@ -17,7 +13,7 @@ resource "null_resource" "enable_rsync" {
   depends_on  = ["oci_core_instance.compute",
                 "oci_file_storage_export.fss_exp"]
   count       = "${local.enable_rsync ? var.compute_instance_count : 0}"
-  
+
   provisioner "file" {
     connection {
       agent               = false
@@ -25,12 +21,12 @@ resource "null_resource" "enable_rsync" {
       host                = "${oci_core_instance.compute.*.private_ip[count.index % var.compute_instance_count]}"
       user                = "${var.compute_instance_user}"
       private_key         = "${file("${var.compute_ssh_private_key}")}"
-      
+
       bastion_host        = "${var.bastion_public_ip}"
       bastion_user        = "${var.bastion_user}"
       bastion_private_key = "${file("${var.bastion_ssh_private_key}")}"
     }
-    
+
     content      = "${data.template_file.rsync.rendered}"
     destination   = "/tmp/rsync_${random_integer.rand.result}.sh"
   }
@@ -40,13 +36,13 @@ resource "null_resource" "enable_rsync" {
   }
 
   provisioner "remote-exec" {
-    connection {  
+    connection {
       agent               = false
       timeout             = "${var.timeout}"
       host                = "${oci_core_instance.compute.*.private_ip[count.index % var.compute_instance_count]}"
       user                = "${var.compute_instance_user}"
       private_key         = "${file("${var.compute_ssh_private_key}")}"
-      
+
       bastion_host        = "${var.bastion_public_ip}"
       bastion_user        = "${var.bastion_user}"
       bastion_private_key = "${file("${var.bastion_ssh_private_key}")}"
@@ -54,7 +50,7 @@ resource "null_resource" "enable_rsync" {
 
     inline = [
       "chmod +x  /tmp/rsync_${random_integer.rand.result}.sh",
-      "while [ ! -f /tmp/rsync.done ]; do /tmp/rsync_${random_integer.rand.result}.sh; sleep 10; done",     
+      "while [ ! -f /tmp/rsync.done ]; do /tmp/rsync_${random_integer.rand.result}.sh; sleep 10; done",
     ]
   }
 }

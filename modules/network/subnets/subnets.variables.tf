@@ -1,6 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
 /*
 variable "tenancy_ocid" {
     description = "OCI Tenancy OCID"
@@ -37,7 +34,7 @@ variable "security_list_ids" {
     type        = "list"
 }
 variable "dns_label" {
-    description = "VCN DNS Label"   
+    description = "VCN DNS Label"
 }
 variable "private_subnet" {
     description = "Whether private or public subnet"

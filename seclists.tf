@@ -1,5 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
 locals {
   tcp_protocol  = "6"
   udp_protocol  = "17"
@@ -152,4 +150,3 @@ resource "oci_core_security_list" "LBSecList" {
     source   = local.anywhere
   }
 }
-

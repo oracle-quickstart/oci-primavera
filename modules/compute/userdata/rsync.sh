@@ -1,8 +1,3 @@
-#Copyright © 2018, Oracle and/or its affiliates. All rights reserved.
-
-#The Universal Permissive License (UPL), Version 1.0
-
-
 #/bin/bash
 sudo mkdir -p ${dst_mount_path}
 sudo mount -t nfs -o rw,bg,hard,timeo=600,nfsvers=3,tcp ${dst_mount_target_private_ip}:${dst_export_path} ${dst_mount_path}

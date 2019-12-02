@@ -1,5 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
 # Public Route Table
 resource "oci_core_route_table" "PublicRT" {
   compartment_id = var.compartment_ocid
@@ -29,4 +27,3 @@ resource "oci_core_route_table" "PrivateRT" {
     network_entity_id = module.create_vcn.natgtw_id
   }
 }
-

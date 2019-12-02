@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 # Filesystem
 resource "oci_file_storage_file_system" "fss" {
   count               = "${length(var.availability_domain)}"
@@ -26,7 +22,7 @@ resource "oci_file_storage_export_set" "fss_expset" {
   depends_on          = ["oci_file_storage_file_system.fss", "oci_file_storage_mount_target.fss_mt"]
   count               = "${length(var.availability_domain)}"
   mount_target_id     = "${element(oci_file_storage_mount_target.fss_mt.*.id, count.index)}"
-  max_fs_stat_bytes   = "${(var.fss_limit_size_in_gb * 1024 * 1024 * 1024)}"  
+  max_fs_stat_bytes   = "${(var.fss_limit_size_in_gb * 1024 * 1024 * 1024)}"
 }
 
 # Filesystem export
@@ -46,7 +42,3 @@ resource "oci_file_storage_export" "fss_exp" {
     },
   ]
 }
-
-
-
-

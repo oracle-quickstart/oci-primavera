@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 # Get CPU and node and node count for a db shape
 data "oci_database_db_system_shapes" "db_system_shapes" {
 	availability_domain = "${element(var.availability_domain, count.index)}"

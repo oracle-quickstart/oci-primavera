@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 output "vcnid" {
   description = "ocid of VCN"
   value = "${oci_core_virtual_network.vcn.id}"
@@ -24,5 +20,3 @@ output "svcgtw_id" {
   description = "ocid of service gateway"
   value = "${oci_core_service_gateway.svcgtw.id}"
 }
-
-

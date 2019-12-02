@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 locals {
   ebsfss_private_ips = "${flatten(concat(data.oci_core_private_ips.ip_mount_target.*.private_ips))}"
 }
@@ -13,7 +9,7 @@ locals {
   ebsfss_fstabs = "${formatlist("%s:%s", data.template_file.ebsfss_ips.*.rendered, oci_file_storage_export.fss_exp.*.path)}"
 }
 
- 
+
 # Get private IP of File Storage Service
 data "oci_core_private_ips" "ip_mount_target" {
   count               = "${length(var.availability_domain)}"

@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 # Load Balancer
 resource "oci_load_balancer" "lb" {
   shape           = "${var.load_balancer_shape}"
@@ -76,4 +72,3 @@ resource "oci_load_balancer_listener" "lb-listener" {
     idle_timeout_in_seconds = "2"
   }
  }
-

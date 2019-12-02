@@ -1,5 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
 locals {
   // VCN is /16
   bastion_subnet_prefix = cidrsubnet(var.vcn_cidr, 6, 0)
@@ -178,4 +176,3 @@ module "create_lb" {
   compute_instance_count       = var.ebs_app_instance_count
   be_ip_addresses              = [module.create_app.AppsPrvIPs]
 }
-

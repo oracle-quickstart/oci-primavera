@@ -1,7 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 variable "compartment_ocid" {
     description = "Compartment OCID"
 }
@@ -13,6 +9,3 @@ variable "vcn_cidr" {
 variable "vcn_dns_label" {
     description = "VCN DNS Label"
 }
-
-
-

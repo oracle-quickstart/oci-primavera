@@ -1,5 +1,3 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
 variable "tenancy_ocid" {
 }
 
@@ -171,4 +169,3 @@ variable "compute_instance_user" {
 variable "bastion_user" {
   description = "Login user for bastion host"
 }
-

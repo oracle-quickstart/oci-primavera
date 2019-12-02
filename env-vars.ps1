@@ -1,10 +1,5 @@
 // Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
 
-#Copyright © 2019, Oracle and/or its affiliates. All rights reserved.
-
-#The Universal Permissive License (UPL), Version 1.0
-
-
 ### Authentication details
 $env:TF_VAR_tenancy_ocid="<tenancy OCID>"
 $env:TF_VAR_user_ocid="<user OCID>"

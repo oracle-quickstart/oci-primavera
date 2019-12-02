@@ -1,12 +1,8 @@
-// Copyright (c) 2019 Oracle and/or its affiliates,  All rights reserved.
-
-
-
 # Virtual Cloud Network (VCN)
 resource "oci_core_virtual_network" "vcn" {
   compartment_id  = "${var.compartment_ocid}"
   cidr_block      = "${var.vcn_cidr}"
-  dns_label       = "${var.vcn_dns_label}" 
+  dns_label       = "${var.vcn_dns_label}"
   display_name    = "${var.vcn_dns_label}"
 }
 
@@ -29,8 +25,8 @@ resource "oci_core_nat_gateway" "natgtw" {
 # Service Gateway
 resource "oci_core_service_gateway" "svcgtw" {
   compartment_id    = "${var.compartment_ocid}"
-  
-    services {                
+
+    services {
       service_id    = "${lookup(data.oci_core_services.svcgtw_services.services[0], "id")}"
     }
       vcn_id        = "${oci_core_virtual_network.vcn.id}"
