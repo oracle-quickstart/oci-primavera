@@ -3,10 +3,10 @@
 The Terraform modules for Oracle Primavera Suite allow you to provision infrastructure for Oracle Primavera Suite on Oracle Cloud Infrastructure using Terraform. Oracle Primavera suite can be deployed on Oracle Cloud Infrastructure in single availability domain or multi availability domain architecture. The modules can be used to create infrastructure for Oracle Primavera Suite in single Availability Domain as well as multiple Availability Domains.
 
 ## Architecture for Deploying Oracle Primavera Suite in a Single Availability domain
-![Architecture for Deploying Oracle Primavera Suite in a Single Availability domain](./images/single_availability_domain_ha_topology.png)
+![Architecture for Deploying Oracle Primavera Suite in a Single Availability domain](images/single_availability_domain_ha_topology.png)
 
 ## Architecture for Deploying Oracle Primavera Suite in a multiple Availability domains
-![Architecture for Deploying Oracle Primavera Suite in Multiple Availability domains](./images/multiple_availability_domain_ha_topology.png)
+![Architecture for Deploying Oracle Primavera Suite in Multiple Availability domains](images/multiple_availability_domain_ha_topology.png)
 
 For more information on Oracle Primavera Suite deployment architecture on Oracle Cloud Infrastructure, see
 - [Architecture for Deploying Oracle Primavera Suite in a Single Availability domain](https://docs.oracle.com/en/solutions/deploy-ebusiness-suite-oci/index.html#GUID-1F8ACA7B-C147-446F-A4A4-AD70E4ECCA66)
@@ -320,7 +320,7 @@ $ cd PrimaveraHome
   ```
   $ terraform init
   ```
-  ![terraform init](./images/terraform-init.png)
+  ![terraform init](images/terraform-init.png)
 
 
 5) Set environment variables by running source **env-vars** on your UNIX system or by running **env-vars.ps1** on your Windows system.
