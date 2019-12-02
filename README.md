@@ -2,7 +2,7 @@
 
 The Terraform modules for Oracle Primavera Suite allow you to provision infrastructure for Oracle Primavera Suite on Oracle Cloud Infrastructure using Terraform. Oracle Primavera suite can be deployed on Oracle Cloud Infrastructure in single availability domain or multi availability domain architecture. The modules can be used to create infrastructure for Oracle Primavera Suite in single Availability Domain as well as multiple Availability Domains.
 
-#@ Architecture for Deploying Oracle Primavera Suite in a Single Availability domain
+## Architecture for Deploying Oracle Primavera Suite in a Single Availability domain
 ![Architecture for Deploying Oracle Primavera Suite in a Single Availability domain](./images/single_availability_domain_ha_topology.png)
 
 ## Architecture for Deploying Oracle Primavera Suite in a multiple Availability domains
